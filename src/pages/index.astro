@@ -90,7 +90,7 @@ const lifePhotos = [
         <a href="#life">LIFE</a>
         <a href="#contact">CONTACT</a>
       </nav>
-      <a class="header-cta" href="mailto:minhnguyennguyen2107@gmail.com">LET'S TALK <span>↗</span></a>
+      <a class="header-cta" href="https://mail.google.com/mail/?view=cm&fs=1&to=minhnguyennguyen2107@gmail.com&su=Li%C3%AAn%20h%E1%BB%87%20v%E1%BB%81%20c%C3%B4ng%20vi%E1%BB%87c" target="_blank">LET'S TALK <span>↗</span></a>
       <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
     </header>
 
@@ -205,7 +205,7 @@ const lifePhotos = [
         <div class="contact-grid">
           <div class="contact-copy reveal">
             <h3>Have an idea?<br /><em>Let's build something together.</em></h3>
-            <a class="email-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=minhnguyennguyen2107@gmail.com&su=Li%C3%AAn%20h%E1%BB%87%20v%E1%BB%81%20c%C3%B4ng%20vi%E1%BB%87c" target="_blank" rel="noopener noreferrer">minhnguyennguyen2107@gmail.com <span>↗</span></a>
+            <a class="email-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=minhnguyennguyen2107@gmail.com&su=Li%C3%AAn%20h%E1%BB%87%20v%E1%BB%81%20c%C3%B4ng%20vi%E1%BB%87c" target="_blank" rel="noreferrer">minhnguyennguyen2107@gmail.com <span>↗</span></a>
           </div>
           <div class="contact-links reveal delay-1">
             <a href="https://www.facebook.com/mingyuan.2107" target="_blank" rel="noreferrer"><span>01</span> FACEBOOK <b></b></a>
@@ -224,7 +224,7 @@ const lifePhotos = [
         <span class="brand-name">NATHAN<span>.</span></span>
       </a>
       <p>NGUYỄN MINH NGUYÊN<br />MARKETING × IT × PLANNING</p></div>
-      <div class="footer-right"><p>© 2026</p><a href="#top">BACK TO TOP ↑</a></div>
+      <div class="footer-right"><p>© 2026</p><a href="#top" class="back-to-top">BACK TO TOP ↑</a></div>
     </footer>
 
     <div class="lightbox" aria-hidden="true">
@@ -247,11 +247,6 @@ const lifePhotos = [
         menuToggle.setAttribute('aria-expanded', String(!open));
         mobileMenu.classList.toggle('open', !open);
         mobileMenu.setAttribute('aria-hidden', String(open));
-      });
-
-      document.querySelector('.back-to-top')?.addEventListener('click', (event) => {
-        event.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
       mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
@@ -287,6 +282,11 @@ const lifePhotos = [
       }));
       document.querySelector('.lightbox-close')?.addEventListener('click', closeLightbox);
       lightbox?.addEventListener('click', (event) => { if (event.target === lightbox) closeLightbox(); });
+
+      document.querySelector('.back-to-top')?.addEventListener('click', (event) => {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
       document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeLightbox(); });
     </script>
   </body>
@@ -405,8 +405,8 @@ const lifePhotos = [
   .life-placeholder { position: absolute; inset: 0; display: grid; place-items: center; color: #444; font-weight: 800; letter-spacing: .12em; font-size: 22px; }
   .life-item-1 { grid-column: span 4; }
   .life-item-2 { grid-column: span 8; min-height: 420px; }
-  .life-item-3 { grid-column: span 5; }
-  .life-item-4 { grid-column: span 7; }
+  .life-item-3 { grid-column: 1 / span 5; }
+  .life-item-4 { grid-column: 6 / span 7; }
   .life-item-5 { grid-column: 1 / span 6; min-height: 340px; }
   .life-item-6 { grid-column: 7 / span 6; min-height: 340px; }
   .life-item-7 { grid-column: 1 / span 4; }
@@ -453,7 +453,7 @@ const lifePhotos = [
     .hero { grid-template-columns: 1fr; padding-top: 140px; }
     .hero-visual { min-height: 550px; margin-top: 60px; }
     .scroll-note { display: none; }
-    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 60px; }
+    .about-grid { grid-template-columns: 1fr; gap: 60px; }
     .project, .project:nth-child(even) { grid-template-columns: 1fr; }
     .project:nth-child(even) .project-image { order: initial; }
     .project-image { min-height: 360px; }
@@ -488,6 +488,7 @@ const lifePhotos = [
     .life-item-1, .life-item-2, .life-item-3, .life-item-4, .life-item-5, .life-item-6, .life-item-7, .life-item-8, .life-item-9 { grid-column: span 12; min-height: 320px; }
     .statement { padding: 100px 20px; }
     .statement h2 { font-size: 48px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 60px; }
     .contact-copy h3 { font-size: 43px; }
     .email-link { font-size: 14px; word-break: break-all; }
     .site-footer { padding: 40px 20px; display: block; }
